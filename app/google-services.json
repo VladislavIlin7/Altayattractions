@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "418229235460",
+    "project_id": "alaty-map",
+    "storage_bucket": "alaty-map.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418229235460:android:4c5b388d9487bc8c2e6a51",
+        "android_client_info": {
+          "package_name": "com.example.altayattractions"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ2Yk2xHofZRHqTMgVpd5OKFjJcZTiAPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
