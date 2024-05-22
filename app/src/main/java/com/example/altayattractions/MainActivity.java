@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements IOperationHandler
     @Override
     protected void onResume() {
         super.onResume();
-
         location.beginUpdates();
     }
 
@@ -69,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements IOperationHandler
         if (this.placeFragment == null) {
             this.placeFragment = new PlaceFragment(this.location);
         }
-
         return this.placeFragment;
     }
 
