@@ -43,22 +43,15 @@ public class PlacesAdapter extends ArrayAdapter<Place> {
         if (place.getDistance() < 0.01) {
             place.setDistance(SimpleLocation.calculateDistance(location.getLatitude(), location.getLongitude(), place.getLatitude(), place.getLongitude()) / 1000);
         }
-
-
         if (place.getDistance() > 0.01) {
             TextView distance = view.findViewById(R.id.distanceList);
             distance.setText(String.format("%.1f", place.getDistance()) + " км");
         }
-
-
         TextView name = view.findViewById(R.id.item_name);
         TextView address = view.findViewById(R.id.item_address);
         ImageView imageView = view.findViewById(R.id.avatar);
-
-
         name.setText(place.getName());
         address.setText(place.getAddress());
-
         FirebaseApp.initializeApp(context);
         FirebaseStorage firebaseStorage = FirebaseStorage.getInstance(pathToImageStorage);
         StorageReference reference = firebaseStorage.getReference(place.getPathToImage());

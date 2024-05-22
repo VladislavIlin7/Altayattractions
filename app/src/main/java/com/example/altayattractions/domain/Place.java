@@ -2,16 +2,15 @@ package com.example.altayattractions.domain;
 
 
 public class Place {
-    private String name;
     private final String pathToImage;
     private final String address;
     private final String informations;
     private final double latitude;
     private final double longitude;
+    private String name;
     private double distance;
 
     public Place(String name, String pathToImage, String address, String informations, double latitude, double longitude) {
-
         this.name = name;
         this.pathToImage = pathToImage;
         this.address = address;
@@ -33,21 +32,17 @@ public class Place {
         return pathToImage;
     }
 
-
     public String getAddress() {
         return address;
     }
-
 
     public String getInformations() {
         return informations;
     }
 
-
     public double getLatitude() {
         return latitude;
     }
-
 
     public double getLongitude() {
         return longitude;

@@ -19,11 +19,9 @@ import com.bumptech.glide.Glide;
 import com.example.altayattractions.R;
 import com.example.altayattractions.domain.Place;
 import com.example.altayattractions.domain.Places;
-import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -34,9 +32,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class MapService implements OnMapReadyCallback, GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
-    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-    public static FusedLocationProviderClient fusedLocationProviderClient;
-    public static SupportMapFragment supportMapFragment;
     final private SimpleLocation location;
     private final Context context;
     private final String pathToImageStorage = "gs://alaty-map.appspot.com";
@@ -64,30 +59,20 @@ public class MapService implements OnMapReadyCallback, GoogleMap.OnMapClickListe
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
-//        if (this.mapReady) return;
-//
-//        this.mapReady = true;
         this.googleMap = googleMap;
         this.googleMap.setOnMapClickListener(this);
         this.googleMap.setOnMapLongClickListener(this);
         this.googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(altaiCenter, 5));
-
         double myLatitude = this.location.getLatitude();
         double myLongitude = this.location.getLongitude();
-
         for (Place p : Places.getPlaces()) {
             this.googleMap.addMarker(new MarkerOptions().position(new LatLng(p.getLatitude(), p.getLongitude())).title(p.getName()));
             p.setDistance(SimpleLocation.calculateDistance(myLatitude, myLongitude, p.getLatitude(), p.getLongitude()) / 1000);
         }
-
-
         MarkerOptions markerUser = new MarkerOptions().position(new LatLng(myLatitude, myLongitude))
                 .title("userLocations")
                 .icon(BitmapDescriptorFactory.defaultMarker(HUE_BLUE));
-
         this.googleMap.addMarker(markerUser);
-
-
         this.googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(@NonNull Marker marker) {
@@ -120,7 +105,6 @@ public class MapService implements OnMapReadyCallback, GoogleMap.OnMapClickListe
                 FirebaseStorage firebaseStorage = FirebaseStorage.getInstance(pathToImageStorage);
                 StorageReference reference = firebaseStorage.getReference(place.getPathToImage());
                 Glide.with(context).load(reference).into(imageView);
-
                 return false;
             }
         });

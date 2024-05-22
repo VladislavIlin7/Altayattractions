@@ -3,9 +3,7 @@ package com.example.altayattractions.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Places {
-
     public static final List<Place> places = new ArrayList<Place>();
 
     public static Place[] getPlaces() {
@@ -14,15 +12,10 @@ public class Places {
         return array;
     }
 
-    public static void clear() {
-        places.clear();
-    }
-
     public static void add(Place place) {
         if (place != null)
             places.add(place);
     }
-
 
     public static Place getPlaceByName(String name) {
         for (Place p : places) {

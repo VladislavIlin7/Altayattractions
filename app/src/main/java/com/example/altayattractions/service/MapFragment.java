@@ -10,7 +10,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 
-
 public class MapFragment extends SupportMapFragment implements OnMapReadyCallback {
     final private Context context;
     final private SimpleLocation location;

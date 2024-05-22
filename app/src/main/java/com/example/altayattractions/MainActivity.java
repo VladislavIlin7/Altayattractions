@@ -18,12 +18,10 @@ import com.example.altayattractions.service.SimpleLocation;
 
 
 public class MainActivity extends AppCompatActivity implements IOperationHandler {
-
     ActivityMainBinding binding;
     PlaceFragment placeFragment;
     MapFragment mapFragment;
     private SimpleLocation location;
-
 
     public void onCompleted() {
         replaceFragment(this.getPlace());
@@ -39,17 +37,13 @@ public class MainActivity extends AppCompatActivity implements IOperationHandler
     @Override
     protected void onPause() {
         location.endUpdates();
-
         super.onPause();
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
         this.location = new SimpleLocation(this);
         if (!this.location.hasLocationEnabled()) {
             SimpleLocation.openSettings(this);
@@ -66,11 +60,8 @@ public class MainActivity extends AppCompatActivity implements IOperationHandler
                     replaceFragment(this.getPlace());
                     break;
             }
-
             return true;
         });
-
-
         PlacesLoader.load(this);
     }
 
@@ -82,12 +73,10 @@ public class MainActivity extends AppCompatActivity implements IOperationHandler
         return this.placeFragment;
     }
 
-
     private MapFragment getMap() {
         if (this.mapFragment == null) {
             this.mapFragment = new MapFragment(this, this.location);
         }
-
         return this.mapFragment;
     }
 
