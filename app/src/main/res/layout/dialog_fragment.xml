@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -15,36 +14,49 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:gravity="center"
             android:text="@string/name"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="35dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/item_distance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="Distance"
+            android:textSize="15dp"
+            android:textStyle="normal" />
 
         <ImageView
             android:id="@+id/item_image"
             android:layout_width="fill_parent"
             android:layout_height="205dp"
-            android:layout_margin="20dp"/>
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp" />
 
         <TextView
             android:id="@+id/item_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:text="@string/address"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="25dp"
+            android:textStyle="italic" />
+
 
         <TextView
             android:id="@+id/item_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:text="@string/info"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="20dp"
+            android:textStyle="normal" />
 
     </LinearLayout>
 </ScrollView>
